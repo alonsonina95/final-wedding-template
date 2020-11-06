@@ -1,0 +1,18 @@
+.TopBannerContainer {
+    background-color: #E3F2FD ;
+}
+
+.TopBannerHeader {
+    background-color: #E3F2FD;
+    min-height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: #9E9E9E;
+    padding-bottom: 10px;
+    font-family: "Times New Roman", Times, serif;
+
+  }
+  

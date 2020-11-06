@@ -4,7 +4,7 @@ import logo from './logo.svg';
 
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
   state = {
     response: '',
     post: '',
@@ -42,12 +42,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1>Alonso and veronica wedding</h1>
-        </header>
-        <p>{this.state.response}</p>
+      <div className="">
+         <p>{this.state.response}</p>
         <form onSubmit={this.handleSubmit}>
           <p>
             <strong>Post to Server:</strong>
@@ -59,10 +55,9 @@ class App extends Component {
           />
           <button type="submit">Submit</button>
         </form>
-        <p>{this.state.responseToPost}</p>
+        <p>{this.state.responseToPost}</p> 
       </div>
     );
   }
 }
 
-export default App;

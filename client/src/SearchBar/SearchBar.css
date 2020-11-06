@@ -1,0 +1,16 @@
+.searchbar-container {
+    text-align: center;
+    background-color: #E3F2FD;
+    width: 100%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchButton {
+    margin: 10px 10px;
+}
