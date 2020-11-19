@@ -1,15 +1,17 @@
 const GuestSchema =  require('./crmModel.js');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 //db settings connection
-const uri = 'mongodb://localhost:27017/';
-const db = 'guests';
+// const uri = 'mongodb://localhost:27017/';
+// const db = 'guests';
 
 mongoose.Promise = global.Promise;
-mongoose.connect(`${uri}${db}`, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.3o6ww.mongodb.net/guests?retryWrites=true&w=majority`,
+{ useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected...'))
+    .catch( err => console.log( "Error ocurring in connecting to db => " + err));
 
 const Guest = mongoose.model('Guest', GuestSchema);
 
