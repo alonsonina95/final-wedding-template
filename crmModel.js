@@ -5,12 +5,13 @@ const Schema = mongoose.Schema;
  const GuestSchema = new Schema({
     firstName: {
         type: String,
-        required: 'Enter a first name'
+        required: true
     },
     lastName: {
         type: String,
-        required: 'Enter a last name'
+        required: true
     }
 })
 
-module.exports = GuestSchema
+const Guest = mongoose.model('guest', GuestSchema);
+module.exports = Guest;

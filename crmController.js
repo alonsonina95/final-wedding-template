@@ -2,10 +2,6 @@ const GuestSchema =  require('./crmModel.js');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-//db settings connection
-// const uri = 'mongodb://localhost:27017/';
-// const db = 'guests';
-
 mongoose.Promise = global.Promise;
 
 mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.3o6ww.mongodb.net/guests?retryWrites=true&w=majority`,
@@ -13,10 +9,9 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cl
     .then(() => console.log('MongoDB connected...'))
     .catch( err => console.log( "Error ocurring in connecting to db => " + err));
 
-const Guest = mongoose.model('Guest', GuestSchema);
+
 
 const addNewGuest = (req, res) => {
-    let newGuest = new Guest(req.body);
 
     newGuest.save((err, guest ) => {
         if (err) {
@@ -27,12 +22,14 @@ const addNewGuest = (req, res) => {
 }
 
 const getGuests = (req, res) => {
-    Guest.find({},(err, guest) => {
-        if(err) {
-            res.send(err);
-        }
-        res.json(guest)
-    });
+
+    GuestSchema.find()
+        .then((result) => {
+            res.send(result);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 }
 
 const guetGuestWithId = (req, res) => {
